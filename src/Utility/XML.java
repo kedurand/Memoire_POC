@@ -44,16 +44,21 @@ public class XML {
         for(int i=0; listeNoeudFils != null && i<listeNoeudFils.getLength(); i++){
             // Récupération noeud fils
             Node noeudFils = listeNoeudFils.item(i);
+            // On ne s'intéresse qu'aux noeuds étant des éléments sinon passe au suivant
+            if(noeudFils.getNodeType() != Node.ELEMENT_NODE) continue;
+
+            System.out.println("\n" + noeudFils.getNodeName() + " = " + noeudFils.getNodeValue());
 
             // Parcours des attributs
             NamedNodeMap namedNodeMap = noeudFils.getAttributes();
             for(int j=0; namedNodeMap != null && j<namedNodeMap.getLength(); j++){
                 Node noeudAttribut = namedNodeMap.item(j);
-                System.out.println(noeudAttribut.getNodeName() + " = " + noeudAttribut.getNodeValue());
+                System.out.println("\t" + noeudAttribut.getNodeName() + " = " + noeudAttribut.getNodeValue());
             }
 
-            System.out.println(noeudFils.getNodeName() + " = " + noeudFils.getNodeValue());
             this.visite(noeudFils.getChildNodes());
         }
     }
+
+
 }
