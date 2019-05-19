@@ -14,97 +14,79 @@ import java.util.List;
 import java.util.UUID;
 
 public class GenerateRPA {
-    // Permet de créer notre un builder
-    private final DocumentBuilderFactory factory;
-    // Permet de créer notre document
-    private final DocumentBuilder builder;
     private final Document document;
-    private final TransformerFactory transformerFactory;
     private final Transformer transformer;
-//    private List<Element> racines;
-    private final Element racine;
-
+    private List<Element> racines;
 
     public GenerateRPA() throws ParserConfigurationException, TransformerConfigurationException {
-        factory = DocumentBuilderFactory.newInstance();
+        // Permet de créer notre un builder
+        DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
         factory.setIgnoringElementContentWhitespace(true);
-        builder = factory.newDocumentBuilder();
+        // Permet de créer notre document
+        DocumentBuilder builder = factory.newDocumentBuilder();
         document = builder.newDocument();
-        transformerFactory = TransformerFactory.newInstance();
+        TransformerFactory transformerFactory = TransformerFactory.newInstance();
         transformer = transformerFactory.newTransformer();
         transformer.setOutputProperty(OutputKeys.INDENT, "yes");
-        transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "2");
-        racine = document.createElement("process");
-//        racines = new ArrayList<>();
+        transformer.setOutputProperty("{http://xml.apache.org/xslt}indent-amount", "4");
+        racines = new ArrayList<>();
     }
 
-//    public List<Element> getRacines() {
-//        return racines;
-//    }
+    public List<Element> getRacines() {
+        return racines;
+    }
 
-//    // Récupére la racine d'après son nom
-//    public Element getRacine (String nom){
-//        nom = this.formatStringXML(nom);
-//        for (Element e : this.racines) {
-//            String lowNomRacine = e.getAttribute("name").toLowerCase();
-//            if( lowNomRacine.equals(nom.toLowerCase()) ){
-//                return e;
-//            }
-//        }
-//        return null;
-//    }
+    // Récupére la racine d'après son nom
+    public Element getRacine (String nom){
+        nom = this.formatStringXML(nom);
+        for (Element e : this.racines) {
+            String lowNomRacine = e.getAttribute("name").toLowerCase();
+            if( lowNomRacine.equals(nom.toLowerCase()) ){
+                return e;
+            }
+        }
+        return null;
+    }
 
-    // Ne change pas la racine car toujours la même mais change crée ses attributs différenciatif
+    // Créer et ajoute la racine si pas déjà présente !
     public void setRacine(String name) {
-//        // Vérifie qu'il n'y a pas d'autre racine de ce nom
-//        if(this.getRacine(finalName)== null){
-        String finalName = null;
-        String[] split = name.split(":");
+        Element nouvRacine = this.document.createElement("process");
+        String finalName = this.getFinalName(name);
 
-        if(split.length==2){
-            finalName = this.formatStringXML(split[1]);
+        // Vérifie qu'il n'y a pas d'autre racine de ce nom
+        if(this.getRacine(finalName)== null){
+            nouvRacine.setAttribute("name", finalName);
             // Si labelé comme objet on ajoute un attribut type="object"
-            if(split[0].toLowerCase().contains("objet")){
-                this.racine.setAttribute("type", "object");
+            if(name.toLowerCase().contains("objet")){
+                nouvRacine.setAttribute("type", "object");
             }
-        }
-        else if(split.length==1){
-            finalName = this.formatStringXML(split[0]);
-        }
-        this.racine.setAttribute("name", finalName);
 
-        // Ajout des éléments élémentaire d'une page
-        this.racine.appendChild(this.createStage(UUID.randomUUID().toString(),
-                        "Stage1", "ProcessInfo", null));
-        this.racine.appendChild(this.createStage(UUID.randomUUID().toString(),
-                        "Start", "Start", null));
-        this.racine.appendChild(this.createStage(UUID.randomUUID().toString(),
-                        "End", "End", null));
+            // Ajout des éléments élémentaire d'une page
+            nouvRacine.appendChild(this.createStage(UUID.randomUUID().toString(),
+                    "Stage1", "ProcessInfo", null));
+            nouvRacine.appendChild(this.createStage(UUID.randomUUID().toString(),
+                    "Start", "Start", null));
+            nouvRacine.appendChild(this.createStage(UUID.randomUUID().toString(),
+                    "End", "End", null));
+
+            // Ajoute si aucune autre racine déjà de ce nom !
+            this.racines.add(nouvRacine);
+        }
     }
 
-    public void addSubsheet(String id, String name){
-        String finalName = null;
-        String[] split = name.split(":");
+    public void addSubsheet(String id, String name, String nomRacine){
+        // Si label contient "objet", on ajoute pas la page
+        if(name.toLowerCase().contains("objet")) return;
 
-        // On prévoit un comportement différent pour les lanes "Objet:..."
-        if(split.length==2){
-            finalName = this.formatStringXML(split[1]);
-            // Si labelé comme objet on ajoute un attribut type="object"
-            if(split[0].toLowerCase().contains("objet")){
-                // TODO: Do nothing for now
-                return;
-            }
-        }
-        else if(split.length==1){
-            finalName = this.formatStringXML(split[0]);
-        }
+        String finalName = this.getFinalName(name);
+        String finalRacine = this.getFinalName(nomRacine);
 
         // Crée un élément pour la page
         Element subsheet = this.document.createElement("subsheet");
         String idSheet = UUID.nameUUIDFromBytes(id.getBytes()).toString();
         subsheet.setAttribute("subsheetid", idSheet);
         // Lie la page à la racine
-        this.racine.appendChild(subsheet);
+        this.getRacine(finalRacine).appendChild(subsheet);
 
         // Crée un sous élément nom de la page
         Element eName = this.document.createElement("name");
@@ -113,21 +95,23 @@ public class GenerateRPA {
         subsheet.appendChild(eName);
 
         // Lie les stages (info, start, end) à la racine
-        this.racine.appendChild(this.createStage(UUID.randomUUID().toString(), finalName, "SubSheetInfo", idSheet));
-        this.racine.appendChild(this.createStage(UUID.randomUUID().toString(), "Start", "Start", idSheet));
-        this.racine.appendChild(this.createStage(UUID.randomUUID().toString(), "End", "End", idSheet));
+        this.getRacine(finalRacine).appendChild(this.createStage(UUID.randomUUID().toString(), finalName, "SubSheetInfo", idSheet));
+        this.getRacine(finalRacine).appendChild(this.createStage(UUID.randomUUID().toString(), "Start", "Start", idSheet));
+        this.getRacine(finalRacine).appendChild(this.createStage(UUID.randomUUID().toString(), "End", "End", idSheet));
     }
 
     public void createXML(Path cheminDossier) throws TransformerException {
-        // Création d'un fichier par racine
-        String nomFichier = this.racine.getAttribute("name") + ".xml";
-        Path cheminFichier = cheminDossier.resolve(nomFichier);
-        File fichier = new File(cheminFichier.toString());
+        for(Element e : this.racines) {
+            // Création d'un fichier par racine
+            String nomFichier = e.getAttribute("name") + ".xml";
+            Path cheminFichier = cheminDossier.resolve(nomFichier);
+            File fichier = new File(cheminFichier.toString());
 
-        DOMSource domSource = new DOMSource(this.racine);
-        StreamResult streamResult = new StreamResult(fichier);
-        this.transformer.transform(domSource, streamResult);
-        System.out.println(nomFichier + " a été crée !");
+            DOMSource domSource = new DOMSource(e);
+            StreamResult streamResult = new StreamResult(fichier);
+            this.transformer.transform(domSource, streamResult);
+            System.out.println(nomFichier + " a été crée !");
+        }
     }
 
     // Format les string en entrée pour respecter norme XML
@@ -182,4 +166,19 @@ public class GenerateRPA {
         return subElement;
     }
 
+    // Noms peuvent être splité, on va donc chercher le nom final
+    private String getFinalName(String name){
+        String[] split = name.split(":");
+
+        // Si "Processus : Nom"
+        if(split.length==2){
+            return this.formatStringXML(split[1]);
+        }
+        // Si "Nom"
+        else if(split.length==1){
+            return this.formatStringXML(split[0]);
+        }
+
+        return null;
+    }
 }
