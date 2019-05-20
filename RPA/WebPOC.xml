@@ -1,4 +1,24 @@
-<?xml version="1.0" encoding="UTF-8"?><process name="WebPOC" type="object">
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE process [
+        <!ELEMENT process (stage|subsheet)*>
+        <!ATTLIST process
+                name CDATA #REQUIRED
+                type CDATA #REQUIRED>
+        <!ELEMENT stage (displayx|displayy|displaywidth|displayheight|subsheetid)*>
+        <!ATTLIST stage
+                name CDATA #REQUIRED
+                stageid CDATA #REQUIRED
+                type CDATA #REQUIRED>
+        <!ELEMENT displayx (#PCDATA)>
+        <!ELEMENT displayy (#PCDATA)>
+        <!ELEMENT displaywidth (#PCDATA)>
+        <!ELEMENT displayheight (#PCDATA)>
+        <!ELEMENT subsheet (name)*>
+        <!ATTLIST subsheet
+                subsheetid CDATA #REQUIRED>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT subsheetid (#PCDATA)>
+        ]>
+<process name="WebPOC" type="object">
     <stage name="Stage1" stageid="4cfaf684-64d7-42a8-b98f-da722634c36a" type="ProcessInfo">
         <displayx>-195</displayx>
         <displayy>-105</displayy>

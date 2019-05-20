@@ -1,4 +1,89 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE bpmn:definitions [
+        <!ELEMENT bpmn:definitions (bpmn:collaboration|bpmn:process|bpmndi:BPMNDiagram)*>
+        <!ATTLIST bpmn:definitions
+                xmlns:xsi CDATA #REQUIRED
+                xmlns:bpmn CDATA #REQUIRED
+                xmlns:bpmndi CDATA #REQUIRED
+                xmlns:dc CDATA #REQUIRED
+                xmlns:di CDATA #REQUIRED
+                id CDATA #REQUIRED
+                targetNamespace CDATA #REQUIRED
+                exporter CDATA #REQUIRED
+                exporterVersion CDATA #REQUIRED>
+        <!ELEMENT bpmn:collaboration (bpmn:participant)*>
+        <!ATTLIST bpmn:collaboration
+                id CDATA #REQUIRED>
+        <!ELEMENT bpmn:participant (#PCDATA)>
+        <!ATTLIST bpmn:participant
+                id CDATA #REQUIRED
+                name CDATA #REQUIRED
+                processRef CDATA #REQUIRED>
+        <!ELEMENT bpmn:process (bpmn:laneSet|bpmn:task|bpmn:startEvent|bpmn:exclusiveGateway|bpmn:endEvent|bpmn:sequenceFlow)*>
+        <!ATTLIST bpmn:process
+                id CDATA #REQUIRED>
+        <!ELEMENT bpmn:laneSet (bpmn:lane)*>
+        <!ATTLIST bpmn:laneSet
+                id CDATA #REQUIRED>
+        <!ELEMENT bpmn:lane (bpmn:flowNodeRef|bpmn:childLaneSet)*>
+        <!ATTLIST bpmn:lane
+                id CDATA #REQUIRED
+                name CDATA #REQUIRED>
+        <!ELEMENT bpmn:flowNodeRef (#PCDATA)>
+        <!ELEMENT bpmn:childLaneSet (bpmn:lane)*>
+        <!ATTLIST bpmn:childLaneSet
+                id CDATA #REQUIRED>
+        <!ELEMENT bpmn:task (bpmn:incoming|bpmn:outgoing)*>
+        <!ATTLIST bpmn:task
+                id CDATA #REQUIRED
+                name CDATA #REQUIRED>
+        <!ELEMENT bpmn:incoming (#PCDATA)>
+        <!ELEMENT bpmn:outgoing (#PCDATA)>
+        <!ELEMENT bpmn:startEvent (bpmn:outgoing)*>
+        <!ATTLIST bpmn:startEvent
+                id CDATA #REQUIRED>
+        <!ELEMENT bpmn:exclusiveGateway (bpmn:incoming|bpmn:outgoing)*>
+        <!ATTLIST bpmn:exclusiveGateway
+                id CDATA #REQUIRED
+                name CDATA #REQUIRED>
+        <!ELEMENT bpmn:endEvent (bpmn:incoming)*>
+        <!ATTLIST bpmn:endEvent
+                id CDATA #REQUIRED>
+        <!ELEMENT bpmn:sequenceFlow (#PCDATA)>
+        <!ATTLIST bpmn:sequenceFlow
+                id CDATA #REQUIRED
+                name CDATA #IMPLIED
+                sourceRef CDATA #REQUIRED
+                targetRef CDATA #REQUIRED>
+        <!ELEMENT bpmndi:BPMNDiagram (bpmndi:BPMNPlane)*>
+        <!ATTLIST bpmndi:BPMNDiagram
+                id CDATA #REQUIRED>
+        <!ELEMENT bpmndi:BPMNPlane (bpmndi:BPMNShape|bpmndi:BPMNEdge)*>
+        <!ATTLIST bpmndi:BPMNPlane
+                id CDATA #REQUIRED
+                bpmnElement CDATA #REQUIRED>
+        <!ELEMENT bpmndi:BPMNShape (dc:Bounds|bpmndi:BPMNLabel)*>
+        <!ATTLIST bpmndi:BPMNShape
+                bpmnElement CDATA #REQUIRED
+                id CDATA #REQUIRED
+                isHorizontal CDATA #IMPLIED
+                isMarkerVisible CDATA #IMPLIED>
+        <!ELEMENT dc:Bounds (#PCDATA)>
+        <!ATTLIST dc:Bounds
+                height CDATA #REQUIRED
+                width CDATA #REQUIRED
+                x CDATA #REQUIRED
+                y CDATA #REQUIRED>
+        <!ELEMENT bpmndi:BPMNEdge (di:waypoint|bpmndi:BPMNLabel)*>
+        <!ATTLIST bpmndi:BPMNEdge
+                bpmnElement CDATA #REQUIRED
+                id CDATA #REQUIRED>
+        <!ELEMENT di:waypoint (#PCDATA)>
+        <!ATTLIST di:waypoint
+                x CDATA #REQUIRED
+                y CDATA #REQUIRED>
+        <!ELEMENT bpmndi:BPMNLabel (dc:Bounds)*>
+        ]>
 <bpmn:definitions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" id="Definitions_01sr94a" targetNamespace="http://bpmn.io/schema/bpmn" exporter="bpmn-js (https://demo.bpmn.io)" exporterVersion="3.4.0">
   <bpmn:collaboration id="Collaboration_0dklehd">
     <bpmn:participant id="Participant_18wxq8d" name="Processus: POC" processRef="Process_0px2cx0" />

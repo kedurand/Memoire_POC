@@ -1,4 +1,23 @@
-<?xml version="1.0" encoding="UTF-8"?><process name="POC">
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE process [
+        <!ELEMENT process (stage|subsheet)*>
+        <!ATTLIST process
+                name CDATA #REQUIRED>
+        <!ELEMENT stage (displayx|displayy|displaywidth|displayheight|subsheetid)*>
+        <!ATTLIST stage
+                name CDATA #REQUIRED
+                stageid CDATA #REQUIRED
+                type CDATA #REQUIRED>
+        <!ELEMENT displayx (#PCDATA)>
+        <!ELEMENT displayy (#PCDATA)>
+        <!ELEMENT displaywidth (#PCDATA)>
+        <!ELEMENT displayheight (#PCDATA)>
+        <!ELEMENT subsheet (name)*>
+        <!ATTLIST subsheet
+                subsheetid CDATA #REQUIRED>
+        <!ELEMENT name (#PCDATA)>
+        <!ELEMENT subsheetid (#PCDATA)>
+        ]>
+<process name="POC">
     <stage name="Stage1" stageid="123446bc-e6dc-4609-b059-e2cde2d18da2" type="ProcessInfo">
         <displayx>-195</displayx>
         <displayy>-105</displayy>
