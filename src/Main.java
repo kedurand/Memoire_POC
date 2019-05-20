@@ -1,13 +1,15 @@
 import org.w3c.dom.*;
-import org.xml.sax.*;
-import javax.xml.parsers.*;
+import org.xml.sax.SAXException;
+
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
+import javax.xml.transform.TransformerException;
 import javax.xml.xpath.*;
-import java.io.*;
-import javax.xml.transform.*;
+import java.io.File;
+import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.HashSet;
-import java.util.Set;
 
 public class Main {
     public static void main (String[] args) throws ParserConfigurationException, IOException, SAXException, TransformerException, XPathExpressionException {
@@ -70,8 +72,6 @@ public class Main {
         }
 
         // Récupération de toutes les lanes ayant été taggé par "Objet: ..."
-        // Set n'autorise pas les doublons
-        Set<String> uniqueObjet = new HashSet<>();
         expression = "/definitions/process/laneSet/lane/childLaneSet/lane[contains(@name, 'Objet')]";
         xPathExpression = xpath.compile(expression);
         nodeList = (NodeList) xPathExpression.evaluate(documentBPMN, XPathConstants.NODESET);
