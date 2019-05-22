@@ -1,109 +1,41 @@
-<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE process [
-        <!ELEMENT process (stage|subsheet)*>
-        <!ATTLIST process
-                name CDATA #REQUIRED
-                type CDATA #REQUIRED>
-        <!ELEMENT stage (displayx|displayy|displaywidth|displayheight|subsheetid)*>
-        <!ATTLIST stage
-                name CDATA #REQUIRED
-                stageid CDATA #REQUIRED
-                type CDATA #REQUIRED>
-        <!ELEMENT displayx (#PCDATA)>
-        <!ELEMENT displayy (#PCDATA)>
-        <!ELEMENT displaywidth (#PCDATA)>
-        <!ELEMENT displayheight (#PCDATA)>
-        <!ELEMENT subsheet (name)*>
-        <!ATTLIST subsheet
-                subsheetid CDATA #REQUIRED>
-        <!ELEMENT name (#PCDATA)>
-        <!ELEMENT subsheetid (#PCDATA)>
-        ]>
-<process name="WebPOC" type="object">
-    <stage name="Stage1" stageid="4cfaf684-64d7-42a8-b98f-da722634c36a" type="ProcessInfo">
+<?xml version="1.0" encoding="UTF-8"?><process name="WebPOC" type="object">
+    <stage name="Stage1" stageid="92ba2406-6946-440c-a9be-8b119891d034" type="ProcessInfo">
         <displayx>-195</displayx>
         <displayy>-105</displayy>
         <displaywidth>150</displaywidth>
         <displayheight>90</displayheight>
     </stage>
-    <stage name="Start" stageid="0e62773b-82c1-49a8-b30f-c0dd4615cb0d" type="Start">
+    <stage name="Start" stageid="e9bb6cda-4c8e-4c1e-93ec-caa7830c7b21" type="Start">
         <displayx>15</displayx>
         <displayy>-105</displayy>
         <displaywidth>60</displaywidth>
         <displayheight>30</displayheight>
     </stage>
-    <stage name="End" stageid="bcb2a329-8e40-4510-862d-9335dbb1b002" type="End">
+    <stage name="End" stageid="55abb99d-34b7-482b-8ac5-d70886e3e90a" type="End">
         <displayx>15</displayx>
         <displayy>90</displayy>
         <displaywidth>60</displaywidth>
         <displayheight>30</displayheight>
     </stage>
-    <subsheet subsheetid="51158098-5956-3ccb-8e22-19088c02d252">
-        <name>Lancer</name>
+    <subsheet subsheetid="73f35d8b-63d0-343c-8789-420df59d33f5">
+        <name>Récupération_Info_Fournisseur</name>
     </subsheet>
-    <stage name="Lancer" stageid="13420c3c-f07a-4e2e-989f-b0dfb8eb2c7c" type="SubSheetInfo">
-        <subsheetid>51158098-5956-3ccb-8e22-19088c02d252</subsheetid>
+    <stage name="Récupération_Info_Fournisseur" stageid="616d6806-21a9-4a6e-9f71-e7db424c8e42" type="SubSheetInfo">
+        <subsheetid>73f35d8b-63d0-343c-8789-420df59d33f5</subsheetid>
         <displayx>-195</displayx>
         <displayy>-105</displayy>
         <displaywidth>150</displaywidth>
         <displayheight>90</displayheight>
     </stage>
-    <stage name="Start" stageid="71a93153-907a-4ca8-8214-838e7fe1f456" type="Start">
-        <subsheetid>51158098-5956-3ccb-8e22-19088c02d252</subsheetid>
+    <stage name="Start" stageid="a9ec1967-c2a0-41d4-9a1e-b89cea5d0e3e" type="Start">
+        <subsheetid>73f35d8b-63d0-343c-8789-420df59d33f5</subsheetid>
         <displayx>15</displayx>
         <displayy>-105</displayy>
         <displaywidth>60</displaywidth>
         <displayheight>30</displayheight>
     </stage>
-    <stage name="End" stageid="2d3995ea-2979-4e34-94d5-e99dceb9acb1" type="End">
-        <subsheetid>51158098-5956-3ccb-8e22-19088c02d252</subsheetid>
-        <displayx>15</displayx>
-        <displayy>90</displayy>
-        <displaywidth>60</displaywidth>
-        <displayheight>30</displayheight>
-    </stage>
-    <subsheet subsheetid="d46bc993-538f-38b6-8c6b-171673903af2">
-        <name>Connexion</name>
-    </subsheet>
-    <stage name="Connexion" stageid="589d5f0b-8c70-45cd-8c15-6f3813c4933c" type="SubSheetInfo">
-        <subsheetid>d46bc993-538f-38b6-8c6b-171673903af2</subsheetid>
-        <displayx>-195</displayx>
-        <displayy>-105</displayy>
-        <displaywidth>150</displaywidth>
-        <displayheight>90</displayheight>
-    </stage>
-    <stage name="Start" stageid="edbe3775-7807-4606-a02a-6aa2b0fd260c" type="Start">
-        <subsheetid>d46bc993-538f-38b6-8c6b-171673903af2</subsheetid>
-        <displayx>15</displayx>
-        <displayy>-105</displayy>
-        <displaywidth>60</displaywidth>
-        <displayheight>30</displayheight>
-    </stage>
-    <stage name="End" stageid="4fb42b43-989d-4a89-983d-f1955e95ed07" type="End">
-        <subsheetid>d46bc993-538f-38b6-8c6b-171673903af2</subsheetid>
-        <displayx>15</displayx>
-        <displayy>90</displayy>
-        <displaywidth>60</displaywidth>
-        <displayheight>30</displayheight>
-    </stage>
-    <subsheet subsheetid="e3e4a631-d0a1-3479-a496-6c1800d6e975">
-        <name>Fermeture</name>
-    </subsheet>
-    <stage name="Fermeture" stageid="74d2b6cc-59e3-4236-ae8e-1bc8cd803475" type="SubSheetInfo">
-        <subsheetid>e3e4a631-d0a1-3479-a496-6c1800d6e975</subsheetid>
-        <displayx>-195</displayx>
-        <displayy>-105</displayy>
-        <displaywidth>150</displaywidth>
-        <displayheight>90</displayheight>
-    </stage>
-    <stage name="Start" stageid="e799d6f8-4072-4cf6-8e3a-dc8e1313d6b5" type="Start">
-        <subsheetid>e3e4a631-d0a1-3479-a496-6c1800d6e975</subsheetid>
-        <displayx>15</displayx>
-        <displayy>-105</displayy>
-        <displaywidth>60</displaywidth>
-        <displayheight>30</displayheight>
-    </stage>
-    <stage name="End" stageid="01430c26-906a-4238-b786-af27c0c0de67" type="End">
-        <subsheetid>e3e4a631-d0a1-3479-a496-6c1800d6e975</subsheetid>
+    <stage name="End" stageid="a06d5f1e-3d30-48b8-865a-3b7f110d6f08" type="End">
+        <subsheetid>73f35d8b-63d0-343c-8789-420df59d33f5</subsheetid>
         <displayx>15</displayx>
         <displayy>90</displayy>
         <displaywidth>60</displaywidth>
@@ -112,21 +44,21 @@
     <subsheet subsheetid="d5277799-a044-3ad9-9204-d8af35bf388a">
         <name>Accès_Recherche_Fournisseur</name>
     </subsheet>
-    <stage name="Accès_Recherche_Fournisseur" stageid="caf28b3a-18b1-4a5b-b62e-ca7c90df18bc" type="SubSheetInfo">
+    <stage name="Accès_Recherche_Fournisseur" stageid="90bc0bb6-f468-46e3-b530-42f8e7069a83" type="SubSheetInfo">
         <subsheetid>d5277799-a044-3ad9-9204-d8af35bf388a</subsheetid>
         <displayx>-195</displayx>
         <displayy>-105</displayy>
         <displaywidth>150</displaywidth>
         <displayheight>90</displayheight>
     </stage>
-    <stage name="Start" stageid="770a877b-ef32-4fe6-997a-c280226d9820" type="Start">
+    <stage name="Start" stageid="3376453b-f146-4550-97fa-29ea4d6c3d1e" type="Start">
         <subsheetid>d5277799-a044-3ad9-9204-d8af35bf388a</subsheetid>
         <displayx>15</displayx>
         <displayy>-105</displayy>
         <displaywidth>60</displaywidth>
         <displayheight>30</displayheight>
     </stage>
-    <stage name="End" stageid="ba66c79a-f015-4129-bded-6d060f7f3a5f" type="End">
+    <stage name="End" stageid="90c47283-465d-44eb-95eb-163b5f14fa96" type="End">
         <subsheetid>d5277799-a044-3ad9-9204-d8af35bf388a</subsheetid>
         <displayx>15</displayx>
         <displayy>90</displayy>
@@ -136,46 +68,94 @@
     <subsheet subsheetid="bb7c6f86-d622-35e2-b04e-35e411e5ed9f">
         <name>Saisie_Recherche_Fournisseur</name>
     </subsheet>
-    <stage name="Saisie_Recherche_Fournisseur" stageid="c4b004d4-83a3-4688-bd2f-880c29b2d225" type="SubSheetInfo">
+    <stage name="Saisie_Recherche_Fournisseur" stageid="a5598f17-2896-4c56-aebd-08451ae73b4b" type="SubSheetInfo">
         <subsheetid>bb7c6f86-d622-35e2-b04e-35e411e5ed9f</subsheetid>
         <displayx>-195</displayx>
         <displayy>-105</displayy>
         <displaywidth>150</displaywidth>
         <displayheight>90</displayheight>
     </stage>
-    <stage name="Start" stageid="d8f615c9-9cd7-41a5-b45e-8aa57216df0e" type="Start">
+    <stage name="Start" stageid="ca2c55a7-75b1-447f-b1f2-3391df64e6b2" type="Start">
         <subsheetid>bb7c6f86-d622-35e2-b04e-35e411e5ed9f</subsheetid>
         <displayx>15</displayx>
         <displayy>-105</displayy>
         <displaywidth>60</displaywidth>
         <displayheight>30</displayheight>
     </stage>
-    <stage name="End" stageid="a79902ae-237e-463f-86c8-9d0b6dd50a1d" type="End">
+    <stage name="End" stageid="04452b2e-834c-43a9-8129-a75d0576ea20" type="End">
         <subsheetid>bb7c6f86-d622-35e2-b04e-35e411e5ed9f</subsheetid>
         <displayx>15</displayx>
         <displayy>90</displayy>
         <displaywidth>60</displaywidth>
         <displayheight>30</displayheight>
     </stage>
-    <subsheet subsheetid="73f35d8b-63d0-343c-8789-420df59d33f5">
-        <name>Récupération_Info_Fournisseur</name>
+    <subsheet subsheetid="e3e4a631-d0a1-3479-a496-6c1800d6e975">
+        <name>Fermeture</name>
     </subsheet>
-    <stage name="Récupération_Info_Fournisseur" stageid="6d2db7f3-8404-4d1a-a196-50ea224e4c4c" type="SubSheetInfo">
-        <subsheetid>73f35d8b-63d0-343c-8789-420df59d33f5</subsheetid>
+    <stage name="Fermeture" stageid="0861bf71-616f-4865-bf78-ab88d1492e71" type="SubSheetInfo">
+        <subsheetid>e3e4a631-d0a1-3479-a496-6c1800d6e975</subsheetid>
         <displayx>-195</displayx>
         <displayy>-105</displayy>
         <displaywidth>150</displaywidth>
         <displayheight>90</displayheight>
     </stage>
-    <stage name="Start" stageid="dd91e3e7-73aa-4d4d-be03-b32fa1736adc" type="Start">
-        <subsheetid>73f35d8b-63d0-343c-8789-420df59d33f5</subsheetid>
+    <stage name="Start" stageid="228f76a9-775f-431f-bf5c-c26b29b7feb0" type="Start">
+        <subsheetid>e3e4a631-d0a1-3479-a496-6c1800d6e975</subsheetid>
         <displayx>15</displayx>
         <displayy>-105</displayy>
         <displaywidth>60</displaywidth>
         <displayheight>30</displayheight>
     </stage>
-    <stage name="End" stageid="dcf5ee0e-3321-49a7-8be6-b82de60766d9" type="End">
-        <subsheetid>73f35d8b-63d0-343c-8789-420df59d33f5</subsheetid>
+    <stage name="End" stageid="d291e1bd-17d2-4af3-83b8-3ec839a1ac08" type="End">
+        <subsheetid>e3e4a631-d0a1-3479-a496-6c1800d6e975</subsheetid>
+        <displayx>15</displayx>
+        <displayy>90</displayy>
+        <displaywidth>60</displaywidth>
+        <displayheight>30</displayheight>
+    </stage>
+    <subsheet subsheetid="d46bc993-538f-38b6-8c6b-171673903af2">
+        <name>Connexion</name>
+    </subsheet>
+    <stage name="Connexion" stageid="c5036fdf-09f7-4a3d-8bc1-384d2435d15e" type="SubSheetInfo">
+        <subsheetid>d46bc993-538f-38b6-8c6b-171673903af2</subsheetid>
+        <displayx>-195</displayx>
+        <displayy>-105</displayy>
+        <displaywidth>150</displaywidth>
+        <displayheight>90</displayheight>
+    </stage>
+    <stage name="Start" stageid="18caa7b5-d53f-476a-afad-ef9969d4d190" type="Start">
+        <subsheetid>d46bc993-538f-38b6-8c6b-171673903af2</subsheetid>
+        <displayx>15</displayx>
+        <displayy>-105</displayy>
+        <displaywidth>60</displaywidth>
+        <displayheight>30</displayheight>
+    </stage>
+    <stage name="End" stageid="447a0214-1484-4b39-b3fd-c9fe5399f48b" type="End">
+        <subsheetid>d46bc993-538f-38b6-8c6b-171673903af2</subsheetid>
+        <displayx>15</displayx>
+        <displayy>90</displayy>
+        <displaywidth>60</displaywidth>
+        <displayheight>30</displayheight>
+    </stage>
+    <subsheet subsheetid="51158098-5956-3ccb-8e22-19088c02d252">
+        <name>Lancer</name>
+    </subsheet>
+    <stage name="Lancer" stageid="13e9f7f9-c2ab-42f6-be78-fcde3a9a9235" type="SubSheetInfo">
+        <subsheetid>51158098-5956-3ccb-8e22-19088c02d252</subsheetid>
+        <displayx>-195</displayx>
+        <displayy>-105</displayy>
+        <displaywidth>150</displaywidth>
+        <displayheight>90</displayheight>
+    </stage>
+    <stage name="Start" stageid="1e1a9fea-c697-4cdd-8a34-b3d238443422" type="Start">
+        <subsheetid>51158098-5956-3ccb-8e22-19088c02d252</subsheetid>
+        <displayx>15</displayx>
+        <displayy>-105</displayy>
+        <displaywidth>60</displaywidth>
+        <displayheight>30</displayheight>
+    </stage>
+    <stage name="End" stageid="a0a11ce0-572a-494e-89b2-a87079d20fc2" type="End">
+        <subsheetid>51158098-5956-3ccb-8e22-19088c02d252</subsheetid>
         <displayx>15</displayx>
         <displayy>90</displayy>
         <displaywidth>60</displaywidth>
