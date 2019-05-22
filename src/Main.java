@@ -15,11 +15,12 @@ public class Main {
     public static void main (String[] args) throws ParserConfigurationException, IOException, SAXException, TransformerException, XPathExpressionException {
         // Path va gérer lui même quel type de slash il faut mettre
         Path cheminRacineProjet = Paths.get(System.getProperty("user.dir"));
-        Path cheminFichierBpmn = Paths.get("BPMN/POC.bpmn");
+        Path cheminDossierBPMN = cheminRacineProjet.resolve(Paths.get("BPMN/"));
         Path cheminDossierRPA = cheminRacineProjet.resolve(Paths.get("RPA/"));
+        Path cheminFichierBPMN = cheminDossierBPMN.resolve(Paths.get("diagram.bpmn"));
 
         // Concaténation de tout pour aboutir au chemin du fichier
-        Path cheminFichier = cheminRacineProjet.resolve(cheminFichierBpmn);
+        Path cheminFichier = cheminRacineProjet.resolve(cheminFichierBPMN);
         // Création du fichier BPMN
         File fichierBPMN = new File(cheminFichier.toString());
 
@@ -109,6 +110,15 @@ public class Main {
             }
         }
         generateRPA.createXML(cheminDossierRPA);
+
+
+
+
+        // Inversion de génération RPA -> BPMN
+        GenerateBPMN generateBPMN = new GenerateBPMN();
+
+
+        generateBPMN.createXML(cheminDossierBPMN, "POC");
 
     }
 
