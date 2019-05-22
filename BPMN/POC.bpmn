@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?><bpmn:definitions>
+    <bpmn:collaboration id="ab16c5ed-b561-4664-87f3-98e5f2eaa32e">
+        <bpmn:participant id="61666c73-c504-35b1-9989-93290a787be8" name="POC" processRef="ref_61666c73-c504-35b1-9989-93290a787be8"/>
+    </bpmn:collaboration>
+    <bpmndi:BPMNDiagram>
+        <bpmndi:BPMNPlane bpmnElement="ab16c5ed-b561-4664-87f3-98e5f2eaa32e">
+            <bpmndi:BPMNShape bpmnElement="61666c73-c504-35b1-9989-93290a787be8" id="61666c73-c504-35b1-9989-93290a787be8_di">
+                <dc:Bounds height="1050" width="1040" x="180" y="80"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="40eee8ca-5bb4-3cc0-8af5-b8655c05bb61" id="40eee8ca-5bb4-3cc0-8af5-b8655c05bb61_di">
+                <dc:Bounds height="150" width="1000" x="220" y="80"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="576b5fe4-e8b1-382d-9351-be02b6836baa" id="576b5fe4-e8b1-382d-9351-be02b6836baa_di">
+                <dc:Bounds height="150" width="1000" x="220" y="230"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="5ef6aa29-b9e7-3140-89e8-f6c36302d1ae" id="5ef6aa29-b9e7-3140-89e8-f6c36302d1ae_di">
+                <dc:Bounds height="150" width="1000" x="220" y="380"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="1bdce4d5-d955-3453-84c7-958f6459ce8c" id="1bdce4d5-d955-3453-84c7-958f6459ce8c_di">
+                <dc:Bounds height="150" width="1000" x="220" y="530"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="2609b8b2-2880-36dd-a5f3-f165b6b82cbe" id="2609b8b2-2880-36dd-a5f3-f165b6b82cbe_di">
+                <dc:Bounds height="150" width="1000" x="220" y="680"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="a596077f-dd40-3ab4-95bc-caf759889f1c" id="a596077f-dd40-3ab4-95bc-caf759889f1c_di">
+                <dc:Bounds height="150" width="1000" x="220" y="830"/>
+            </bpmndi:BPMNShape>
+            <bpmndi:BPMNShape bpmnElement="f391d6c0-74b4-3897-b9cf-fdc173fa7e6e" id="f391d6c0-74b4-3897-b9cf-fdc173fa7e6e_di">
+                <dc:Bounds height="150" width="1000" x="220" y="980"/>
+            </bpmndi:BPMNShape>
+        </bpmndi:BPMNPlane>
+    </bpmndi:BPMNDiagram>
+    <bpmn:process id="ref_61666c73-c504-35b1-9989-93290a787be8">
+        <bpmn:laneSet>
+            <bpmn:lane id="40eee8ca-5bb4-3cc0-8af5-b8655c05bb61" name="Finalisation"/>
+            <bpmn:lane id="576b5fe4-e8b1-382d-9351-be02b6836baa" name="Recherche_Fournisseur"/>
+            <bpmn:lane id="5ef6aa29-b9e7-3140-89e8-f6c36302d1ae" name="Recupération_Liste_Formulaire"/>
+            <bpmn:lane id="1bdce4d5-d955-3453-84c7-958f6459ce8c" name="Fermeture"/>
+            <bpmn:lane id="2609b8b2-2880-36dd-a5f3-f165b6b82cbe" name="Chargement_Queue"/>
+            <bpmn:lane id="a596077f-dd40-3ab4-95bc-caf759889f1c" name="Ouverture"/>
+            <bpmn:lane id="f391d6c0-74b4-3897-b9cf-fdc173fa7e6e" name="Main"/>
+        </bpmn:laneSet>
+    </bpmn:process>
+</bpmn:definitions>

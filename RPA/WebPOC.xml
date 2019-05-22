@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?><process name="WebPOC" type="object">
-    <stage name="Stage1" stageid="92ba2406-6946-440c-a9be-8b119891d034" type="ProcessInfo">
+    <stage name="Stage1" stageid="4b0c8532-5001-496f-b916-c81840045269" type="ProcessInfo">
         <displayx>-195</displayx>
         <displayy>-105</displayy>
         <displaywidth>150</displaywidth>
         <displayheight>90</displayheight>
     </stage>
-    <stage name="Start" stageid="e9bb6cda-4c8e-4c1e-93ec-caa7830c7b21" type="Start">
+    <stage name="Start" stageid="131e0b14-6f1c-49d1-9441-be23ed869648" type="Start">
         <displayx>15</displayx>
         <displayy>-105</displayy>
         <displaywidth>60</displaywidth>
         <displayheight>30</displayheight>
     </stage>
-    <stage name="End" stageid="55abb99d-34b7-482b-8ac5-d70886e3e90a" type="End">
+    <stage name="End" stageid="2924dd31-7f43-41f9-869e-c5b01f0dea54" type="End">
         <displayx>15</displayx>
         <displayy>90</displayy>
         <displaywidth>60</displaywidth>
@@ -20,21 +20,21 @@
     <subsheet subsheetid="73f35d8b-63d0-343c-8789-420df59d33f5">
         <name>Récupération_Info_Fournisseur</name>
     </subsheet>
-    <stage name="Récupération_Info_Fournisseur" stageid="616d6806-21a9-4a6e-9f71-e7db424c8e42" type="SubSheetInfo">
+    <stage name="Récupération_Info_Fournisseur" stageid="3fdac03e-4b0d-4df4-81db-0985a242f79b" type="SubSheetInfo">
         <subsheetid>73f35d8b-63d0-343c-8789-420df59d33f5</subsheetid>
         <displayx>-195</displayx>
         <displayy>-105</displayy>
         <displaywidth>150</displaywidth>
         <displayheight>90</displayheight>
     </stage>
-    <stage name="Start" stageid="a9ec1967-c2a0-41d4-9a1e-b89cea5d0e3e" type="Start">
+    <stage name="Start" stageid="63f4d6e5-502f-4720-902f-400d28ce2f98" type="Start">
         <subsheetid>73f35d8b-63d0-343c-8789-420df59d33f5</subsheetid>
         <displayx>15</displayx>
         <displayy>-105</displayy>
         <displaywidth>60</displaywidth>
         <displayheight>30</displayheight>
     </stage>
-    <stage name="End" stageid="a06d5f1e-3d30-48b8-865a-3b7f110d6f08" type="End">
+    <stage name="End" stageid="a5ae7c01-aa24-46f3-81b8-251e5a19ca7d" type="End">
         <subsheetid>73f35d8b-63d0-343c-8789-420df59d33f5</subsheetid>
         <displayx>15</displayx>
         <displayy>90</displayy>
@@ -44,21 +44,21 @@
     <subsheet subsheetid="d5277799-a044-3ad9-9204-d8af35bf388a">
         <name>Accès_Recherche_Fournisseur</name>
     </subsheet>
-    <stage name="Accès_Recherche_Fournisseur" stageid="90bc0bb6-f468-46e3-b530-42f8e7069a83" type="SubSheetInfo">
+    <stage name="Accès_Recherche_Fournisseur" stageid="aa67fe2b-6e37-439d-8276-9f31a8969017" type="SubSheetInfo">
         <subsheetid>d5277799-a044-3ad9-9204-d8af35bf388a</subsheetid>
         <displayx>-195</displayx>
         <displayy>-105</displayy>
         <displaywidth>150</displaywidth>
         <displayheight>90</displayheight>
     </stage>
-    <stage name="Start" stageid="3376453b-f146-4550-97fa-29ea4d6c3d1e" type="Start">
+    <stage name="Start" stageid="f2ec51aa-0a96-4fc9-b412-d86bec73a3c2" type="Start">
         <subsheetid>d5277799-a044-3ad9-9204-d8af35bf388a</subsheetid>
         <displayx>15</displayx>
         <displayy>-105</displayy>
         <displaywidth>60</displaywidth>
         <displayheight>30</displayheight>
     </stage>
-    <stage name="End" stageid="90c47283-465d-44eb-95eb-163b5f14fa96" type="End">
+    <stage name="End" stageid="6a4f79f0-c60c-42a8-befc-8af8cd41fccc" type="End">
         <subsheetid>d5277799-a044-3ad9-9204-d8af35bf388a</subsheetid>
         <displayx>15</displayx>
         <displayy>90</displayy>
@@ -68,21 +68,21 @@
     <subsheet subsheetid="bb7c6f86-d622-35e2-b04e-35e411e5ed9f">
         <name>Saisie_Recherche_Fournisseur</name>
     </subsheet>
-    <stage name="Saisie_Recherche_Fournisseur" stageid="a5598f17-2896-4c56-aebd-08451ae73b4b" type="SubSheetInfo">
+    <stage name="Saisie_Recherche_Fournisseur" stageid="fe5adead-07e7-490f-a0cb-92da9e9a062b" type="SubSheetInfo">
         <subsheetid>bb7c6f86-d622-35e2-b04e-35e411e5ed9f</subsheetid>
         <displayx>-195</displayx>
         <displayy>-105</displayy>
         <displaywidth>150</displaywidth>
         <displayheight>90</displayheight>
     </stage>
-    <stage name="Start" stageid="ca2c55a7-75b1-447f-b1f2-3391df64e6b2" type="Start">
+    <stage name="Start" stageid="adca6fdf-36f1-48a0-bccc-06c67f4d025d" type="Start">
         <subsheetid>bb7c6f86-d622-35e2-b04e-35e411e5ed9f</subsheetid>
         <displayx>15</displayx>
         <displayy>-105</displayy>
         <displaywidth>60</displaywidth>
         <displayheight>30</displayheight>
     </stage>
-    <stage name="End" stageid="04452b2e-834c-43a9-8129-a75d0576ea20" type="End">
+    <stage name="End" stageid="f5d08a3b-1eed-43f8-8e04-8b3a11ff19e4" type="End">
         <subsheetid>bb7c6f86-d622-35e2-b04e-35e411e5ed9f</subsheetid>
         <displayx>15</displayx>
         <displayy>90</displayy>
@@ -92,21 +92,21 @@
     <subsheet subsheetid="e3e4a631-d0a1-3479-a496-6c1800d6e975">
         <name>Fermeture</name>
     </subsheet>
-    <stage name="Fermeture" stageid="0861bf71-616f-4865-bf78-ab88d1492e71" type="SubSheetInfo">
+    <stage name="Fermeture" stageid="fdc287a5-c427-4d98-b657-9c5939453e7f" type="SubSheetInfo">
         <subsheetid>e3e4a631-d0a1-3479-a496-6c1800d6e975</subsheetid>
         <displayx>-195</displayx>
         <displayy>-105</displayy>
         <displaywidth>150</displaywidth>
         <displayheight>90</displayheight>
     </stage>
-    <stage name="Start" stageid="228f76a9-775f-431f-bf5c-c26b29b7feb0" type="Start">
+    <stage name="Start" stageid="76b28a67-9899-4ef4-99b0-2777ea64e1a2" type="Start">
         <subsheetid>e3e4a631-d0a1-3479-a496-6c1800d6e975</subsheetid>
         <displayx>15</displayx>
         <displayy>-105</displayy>
         <displaywidth>60</displaywidth>
         <displayheight>30</displayheight>
     </stage>
-    <stage name="End" stageid="d291e1bd-17d2-4af3-83b8-3ec839a1ac08" type="End">
+    <stage name="End" stageid="8b69caa8-adba-43e1-b26d-e0f36c57da2e" type="End">
         <subsheetid>e3e4a631-d0a1-3479-a496-6c1800d6e975</subsheetid>
         <displayx>15</displayx>
         <displayy>90</displayy>
@@ -116,21 +116,21 @@
     <subsheet subsheetid="d46bc993-538f-38b6-8c6b-171673903af2">
         <name>Connexion</name>
     </subsheet>
-    <stage name="Connexion" stageid="c5036fdf-09f7-4a3d-8bc1-384d2435d15e" type="SubSheetInfo">
+    <stage name="Connexion" stageid="8e2e6c8e-6f39-4b29-998d-f9bb040a3464" type="SubSheetInfo">
         <subsheetid>d46bc993-538f-38b6-8c6b-171673903af2</subsheetid>
         <displayx>-195</displayx>
         <displayy>-105</displayy>
         <displaywidth>150</displaywidth>
         <displayheight>90</displayheight>
     </stage>
-    <stage name="Start" stageid="18caa7b5-d53f-476a-afad-ef9969d4d190" type="Start">
+    <stage name="Start" stageid="e4dd84a5-312d-4464-aabc-c75bc1556a0e" type="Start">
         <subsheetid>d46bc993-538f-38b6-8c6b-171673903af2</subsheetid>
         <displayx>15</displayx>
         <displayy>-105</displayy>
         <displaywidth>60</displaywidth>
         <displayheight>30</displayheight>
     </stage>
-    <stage name="End" stageid="447a0214-1484-4b39-b3fd-c9fe5399f48b" type="End">
+    <stage name="End" stageid="22e325fe-811a-44af-a4dc-cd0a8a62cc13" type="End">
         <subsheetid>d46bc993-538f-38b6-8c6b-171673903af2</subsheetid>
         <displayx>15</displayx>
         <displayy>90</displayy>
@@ -140,21 +140,21 @@
     <subsheet subsheetid="51158098-5956-3ccb-8e22-19088c02d252">
         <name>Lancer</name>
     </subsheet>
-    <stage name="Lancer" stageid="13e9f7f9-c2ab-42f6-be78-fcde3a9a9235" type="SubSheetInfo">
+    <stage name="Lancer" stageid="61448c72-652f-4a52-86ca-0348f92247d8" type="SubSheetInfo">
         <subsheetid>51158098-5956-3ccb-8e22-19088c02d252</subsheetid>
         <displayx>-195</displayx>
         <displayy>-105</displayy>
         <displaywidth>150</displaywidth>
         <displayheight>90</displayheight>
     </stage>
-    <stage name="Start" stageid="1e1a9fea-c697-4cdd-8a34-b3d238443422" type="Start">
+    <stage name="Start" stageid="7efaed55-8c49-44fe-8659-5a5c6776cc06" type="Start">
         <subsheetid>51158098-5956-3ccb-8e22-19088c02d252</subsheetid>
         <displayx>15</displayx>
         <displayy>-105</displayy>
         <displaywidth>60</displaywidth>
         <displayheight>30</displayheight>
     </stage>
-    <stage name="End" stageid="a0a11ce0-572a-494e-89b2-a87079d20fc2" type="End">
+    <stage name="End" stageid="af6caa12-bff5-4609-a34c-a7c197c2a84e" type="End">
         <subsheetid>51158098-5956-3ccb-8e22-19088c02d252</subsheetid>
         <displayx>15</displayx>
         <displayy>90</displayy>

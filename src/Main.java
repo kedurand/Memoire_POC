@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.util.UUID;
 
 public class Main {
     public static void main (String[] args) throws ParserConfigurationException, IOException, SAXException, TransformerException, XPathExpressionException {
@@ -34,9 +35,6 @@ public class Main {
         final DocumentBuilder builder = factory.newDocumentBuilder();
         // Document issue de fichier dom ou de flux .xml
         Document documentBPMN = builder.parse(fichierBPMN);
-        //optional, but recommended
-        //read this - http://stackoverflow.com/questions/13786607/normalization-in-dom-parsing-with-java-how-does-it-work
-        documentBPMN.getDocumentElement().normalize();
         // Racine du document
         // Element racine = documentBPMN.getDocumentElement();
 
@@ -68,7 +66,7 @@ public class Main {
                 xPathExpression = xpath.compile(expression);
                 nodeList = (NodeList) xPathExpression.evaluate(documentBPMN, XPathConstants.NODESET);
                 // Parcourt récursif du processus et de ses lanes
-                Main.visite(nodeList, generateRPA, nomRacine);
+                Main.visiteBPMN(nodeList, generateRPA, nomRacine);
             }
         }
 
@@ -112,20 +110,49 @@ public class Main {
         generateRPA.createXML(cheminDossierRPA);
 
 
-
-
+        // =================
+        // !! RPA -> BPMN !!
+        // =================
+        Path cheminFichierRPA = cheminDossierRPA.resolve(Paths.get("POC.xml"));
+        // Concaténation de tout pour aboutir au chemin du fichier
+        cheminFichier = cheminRacineProjet.resolve(cheminFichierRPA);
+        // Création du fichier BPMN
+        File fichierRPA = new File(cheminFichier.toString());
         // Inversion de génération RPA -> BPMN
         GenerateBPMN generateBPMN = new GenerateBPMN();
+        // Document issue de fichier dom ou de flux .xml
+        Document documentRPA = builder.parse(fichierRPA);
+        Element racine = documentRPA.getDocumentElement();
+        String nomProcess = racine.getAttribute("name");
 
+        // On va récupérer que les noeuds correspondant aux sous pages
+        expression = "/process/subsheet";
+        xPathExpression = xpath.compile(expression);
+        nodeList = (NodeList) xPathExpression.evaluate(documentRPA, XPathConstants.NODESET);
 
-        generateBPMN.createXML(cheminDossierBPMN, "POC");
+        // Création d'un participant / bassin en donnant le nombre de sous page à créer
+        generateBPMN.addParticipant(nomProcess, nodeList.getLength());
 
+        // Création des lane pour chaque sous page
+        for (int i=0; nodeList != null && i < nodeList.getLength(); i++){
+            Node node = nodeList.item(i);
+            if(node.getNodeType() == Node.ELEMENT_NODE) {
+                Element e = (Element) node;
+                // On récupère l'id de la subsheet directement
+                String id = e.getAttribute("subsheetid");
+                // Récupération de l'élément files "name" et de son texte
+                String name = e.getElementsByTagName("name").item(0).getTextContent();
+                generateBPMN.addLane(nomProcess, id, name.trim(), i);
+            }
+        }
+
+        generateBPMN.createXML(cheminDossierBPMN, nomProcess);
     }
 
-    // Parcourt récursif de l'arbre
-    public static void visite (NodeList listeNoeudFils, GenerateRPA generateRPA, String nomRacine){
+    // Parcourt récursif de l'arbre BPMN pour générer du RPA
+    public static void visiteBPMN (NodeList listeNoeudFils, GenerateRPA generateRPA, String nomRacine){
         // Vérifie que la liste des noeuds ne soit pas vide
-        for(int i=0; listeNoeudFils != null && i<listeNoeudFils.getLength(); i++){
+        for(int i=0; listeNoeudFils != null && i < listeNoeudFils.getLength(); i++){
             // Récupération noeud fils
             Node noeudFils = listeNoeudFils.item(i);
             // On ne s'intéresse qu'aux noeuds étant des éléments sinon passe au suivant
@@ -151,7 +178,12 @@ public class Main {
                     break;
             }
 
-            visite(noeudFils.getChildNodes(), generateRPA, nomRacine);
+            visiteBPMN(noeudFils.getChildNodes(), generateRPA, nomRacine);
         }
     }
+
+    public static void visiteRPA (NodeList listNoeud){
+        // A faire si on veut faire une génération RPA -> BPMN bien plus poussée !
+    }
+
 }
